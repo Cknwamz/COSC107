@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sneaker Countdown</title>
+ <style>
+  body {
+   text-align: center;
+   background: #fafafa;
+   font-family: sans-serif;
+    background-image: url(Lebron.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+}
+
+  .timer {
+   display: inline-block;
+   font-size: 6em;
+   font-weight: bold;
+   color: #333;
+  }
+
+  .days {
+   color: #5D9CEC;
+  }
+
+  .hours {
+   color: #F56E91;
+  }
+
+  .minutes {
+   color: #F56E91;
+  }
+
+  .seconds {
+   color: #5D9CEC;
+  }
+ </style>
+</head>
+<body>
+ <h1 style="font-weight: bold;">LeBron 12 'NSRL' Edition</h1>
+ <h2>Release Countdown</h2>
+
+ <div id="timer" class="timer">
+  <span class="days"></span>
+  <span class="hours"></span>
+  <span class="minutes"></span>
+  <span class="seconds"></span>
+ </div>
+
+ <p>The LeBron 12 'NSRL' Edition will be available in 10 days. Stay tuned for the official release on Nike.com and select Nike Basketball retailers.</p>
+<a target="_blank" href="https://www.nike.com/">This is to go to Nike's Official store to get an extra pair for a little amoount</a>
+ <script>
+  var countDownDate = new Date().setDate(new Date().getDate() + 10);
+
+  function updateCountdown() {
+   var now = new Date();
+   var distance = countDownDate - now;
+
+   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+   document.getElementById("timer").innerHTML =
+   "<span class='days'>" + days + "</span> Days " +
+   "<span class='hours'>" + hours + "</span> Hours " +
+   "<span class='minutes'>" + minutes + "</span> Minutes " +
+   "<span class='seconds'>" + seconds + "</span> Seconds";
+
+   if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "The LeBron 12 'NSRL' Edition is now available!";
+   }
+  }
+
+  setInterval(updateCountdown, 1000);
+ </script>
+</body>
+</html>
